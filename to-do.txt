@@ -1,0 +1,10 @@
+HTML for the homepage
+    Needs a Navigation bar
+    Needs a title
+    Needs handlebars
+
+Need to make the database using models
+    Store login password
+    Store Tech blog
+    Store Comments
+    
