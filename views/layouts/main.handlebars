@@ -12,16 +12,20 @@
             {{!-- The href needs to be to a new handle bar --}}
                 <li><a href="#home"></a>Home</li>
                 <li><a href="#dashboard"></a>Dashboard</li>
+        {{#if loggedIn}}
                 <li><a href="#logout"></a>Logout</li>
+        {{else}} 
+                <li><a href="#login"></a>Login</li>
+        {{/if}}
+           
            </ul> 
         </nav>
-
+        <h1>The Tech Blog</h1>
     </header>
+<main>
+{{body}}
 
-    <h1>The Tech Blog</h1>
-
-
-
+</main>
 
 </body>
 </html>

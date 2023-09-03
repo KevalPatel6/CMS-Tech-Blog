@@ -20,7 +20,7 @@ Blog.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        blog_body: {
+        blog_content: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -42,3 +42,5 @@ Blog.init(
       
     }
 )
+
+module.exports = Blog
