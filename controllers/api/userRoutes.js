@@ -5,7 +5,6 @@ const { User } = require('../../models');
 router.post('/signup', async (req,res)=>{
     try {
         const signupUser = await User.create({
-            email: req.body.email,
             user_name: req.body.user_name,
             password: req.body.password,
         })
@@ -22,7 +21,7 @@ router.post('/signup', async (req,res)=>{
 router.post('/login', async (req, res)=>{
     try {
         const userData = await User.findOne({
-            email: req.body.email
+            username: req.body.username
         }) 
 
         if(!userData){
@@ -51,6 +50,14 @@ router.post('/login', async (req, res)=>{
     }
 })
 
-
+router.get('/logout', async (req, res)=>{
+    try {
+        res.session.destroy();
+        res.render('homepage')
+    } 
+    catch (error) {
+        res.status(500).json({message: 'Internal Server Error'})
+    }
+})
 
 module.exports = router;
