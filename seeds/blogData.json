@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "blog_title": "Introduction to JavaScript",
+        "blog_content": "JavaScript is a versatile and powerful programming language...",
+        "date_posted": "2023-09-01",
+        "user_id": 1
+    },
+    {
+        "id": 2,
+        "blog_title": "Getting Started with React",
+        "blog_content": "React is a popular JavaScript library for building user interfaces...",
+        "date_posted": "2023-09-03",
+        "user_id": 6
+    },
+    {
+        "id": 3,
+        "blog_title": "Node.js Fundamentals",
+        "blog_content": "Node.js is a runtime environment that allows you to run JavaScript...",
+        "date_posted": "2023-09-05",
+        "user_id": 2
+    },
+    {
+        "id": 4,
+        "blog_title": "Diving into HTML5",
+        "blog_content": "HTML5 is the latest version of the Hypertext Markup Language...",
+        "date_posted": "2023-09-07",
+        "user_id": 5
+    },
+    {
+        "id": 5,
+        "blog_title": "CSS Styling Techniques",
+        "blog_content": "Cascading Style Sheets (CSS) is used to style web pages...",
+        "date_posted": "2023-09-10",
+        "user_id": 3
+    }
+]
