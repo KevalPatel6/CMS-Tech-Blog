@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <header class = 'header'>
-        <nav class = 'nav'>
-           <ul>
-            {{!-- The href needs to be to a new handle bar --}}
-                <li><a href='../homepage.handlebars'></a>Home</li>
-                <li><a href='../dashboard.handlebars'></a>Dashboard</li>
-       {{#if logged_in}}
-                <li id="logout"><a href='../homepage.handlebars'></a>Logout</li>
-      {{else}}
-                <li id="login"><a href='../login.handlebars'></a>Login</li>
-        {{/if}}
+    <header class='header'>
+        <nav class='nav'>
+            <ul>
+                {{!-- The href needs to be to a new handle bar --}}
+                <li><a href='/'></a>Home</li>
+                <li><a href='/dashboard'></a>Dashboard</li>
+                {{#if logged_in}}
+                <li id="logout"><a href='/logout'></a>Logout</li>
+                {{else}}
+                <li id="login"><a href='/login'></a>Login</li>
+                {{/if}}
 
-           
-           </ul> 
+
+            </ul>
         </nav>
-        <h1>The Tech Blog</h1>
-    </header>
-<main>
-{{body}}
+        {{#if newTitle}}
+        <h1>{{newTitle}}</h1>
 
-</main>
+        {{else}}
+        <h1>Tech Blog</h1>
+        {{/if}}
+    </header>
+    <main>
+        {{{body}}}
+
+    </main>
 
 </body>
+
 </html>

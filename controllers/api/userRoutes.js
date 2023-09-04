@@ -19,12 +19,38 @@ router.post('/signup', async (req,res)=>{
 
     })
 
+router.post('/login', async (req, res)=>{
+    try {
+        const userData = await User.findOne({
+            email: req.body.email
+        }) 
 
-router.get()
+        if(!userData){
+            res.status(404).json({message: 'Incorrect email or password, please try again!'})
+            return;
+        }
 
-router.delete()
+        const validPassword = await userData.checkPassword(req.body.password)
 
-router.put()
+        if(!validPassword){
+            res.status(404).json({message: 'Incorrect email or password, please try again!'})
+            return;
+        }
+        else{
+            req.session.save(() => {
+                req.session.id = userData.id;
+                req.session.loggedIn = true;
+
+                res.json({message: 'You are now logged in'})
+            })
+        }
+    } 
+    catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    }
+})
+
 
 
 module.exports = router;
