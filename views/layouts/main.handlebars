@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header class = 'header'>
-        <nav>
+        <nav class = 'nav'>
            <ul>
             {{!-- The href needs to be to a new handle bar --}}
-                <li><a href="#home"></a>Home</li>
-                <li><a href="#dashboard"></a>Dashboard</li>
-        {{#if loggedIn}}
-                <li><a href="#logout"></a>Logout</li>
-        {{else}} 
-                <li><a href="#login"></a>Login</li>
+                <li><a href='../homepage.handlebars'></a>Home</li>
+                <li><a href='../dashboard.handlebars'></a>Dashboard</li>
+       {{#if logged_in}}
+                <li id="logout"><a href='../homepage.handlebars'></a>Logout</li>
+      {{else}}
+                <li id="login"><a href='../login.handlebars'></a>Login</li>
         {{/if}}
+
            
            </ul> 
         </nav>
