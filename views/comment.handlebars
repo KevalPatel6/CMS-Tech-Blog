@@ -1,3 +1,4 @@
+
 <div class='blog-container'>
     <div class='blog-title-container'>
         <h4 class = 'blog-title' data-id="{{id}}">{{blog_title}}</h4>
@@ -8,6 +9,18 @@
     </div>
 </div>
 
+<div class='comments container'>
+{{#each comments as |comment|}}
+    <div class="comment-title-container">
+        <h6>Posted by {{user_id}} on {{date_posted}}</h6>
+    </div>
+    <div class="comment-content">
+        <p data-id="{{id}}">{{content}}</p>
+    </div>
+{{/each}}
+</div>
+
+<h5>Post a Comment Below!</h5>
 <div class="comment-container">
     <div class="comment-title-container">
         <h6>Comment</h6>

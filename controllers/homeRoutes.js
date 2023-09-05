@@ -67,11 +67,23 @@ router.get('/newPost', authenticate, async (req, res)=>{
     }
 })
 
-router.get('/comment', authenticate, async (req,res)=>{
+//Get Blog by ID//
+router.get('/blog/:id', authenticate, async (req,res)=>{
     try {
-        res.render('comment')
+        const blogs = await Blog.findByPk(req.params.id, {
+            include: [{model: Comment},{model: User}]
+        })
+        
+        blogs = blogs.get({plain:true});
+
+        res.render('comment', {
+            ...blogs
+        })
+        
     } catch (error) {
-        res.status(500).json({message: 'Internal Server Error'})
+        console.log(error)
+        res.status(500).json({message:'Internal Service Error, unable to post your blog, please try again.'})
     }
+
 })
 module.exports = router

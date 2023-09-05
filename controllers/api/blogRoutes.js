@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, User, Comment} = require('../../models');
 const authenticate = require('../../utils/authenticate');
 
+//Post New Blog//
 router.post('/', authenticate, async (req,res)=>{
     try {
         const blogs = await Blog.create({
@@ -17,6 +18,7 @@ router.post('/', authenticate, async (req,res)=>{
 
 })
 
+
 router.get('/', authenticate, async (req, res)=>{
     try {
         const blogs = await Blog.findAll()
@@ -29,6 +31,7 @@ router.get('/', authenticate, async (req, res)=>{
         res.status(500).json({message: 'Internal Server Error, could not retrieve blogs'})
     }
 })
+
 
 router.delete('/', authenticate, async (req, res)=>{
     try {

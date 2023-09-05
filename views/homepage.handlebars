@@ -1,7 +1,8 @@
 {{#each techBlogs as |blog|}}
 <div class='blog-container'>
     <div class='blog-title-container'>
-        <h4 class = 'blog-title' data-id="{{id}}">{{blog_title}}</h4>
+        <a href="/blog/{{blog.id}}">
+        <h4 class = 'blog-title' data-id="{{id}}">{{blog_title}}</h4></a>
         <h6>Posted by {{user_id}} on {{date_posted}}</h6>
     </div>
     <div class='blog-content'>
