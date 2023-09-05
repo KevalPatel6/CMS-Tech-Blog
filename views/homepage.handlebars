@@ -1,11 +1,14 @@
-<div class ='blog-container'>
-    {{#each techBlogs as |blog|}}
-    <div class = 'blog-title-container'>        
+{{#each techBlogs as |blog|}}
+<div class='blog-container'>
+    <div class='blog-title-container'>
         <h4 data-id="{{id}}">{{blog_title}}</h4>
         <h6>Posted by {{user_id}} on {{date_posted}}</h6>
     </div>
-    <div class ='blog-content'>
+    <div class='blog-content'>
         <p data-id="{{id}}">{{blog_content}}</p>
     </div>
-    {{/each}}
 </div>
+{{/each}}
+
+
+<script src="/js/homepage.js"></script>

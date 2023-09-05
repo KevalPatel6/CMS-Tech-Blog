@@ -34,15 +34,7 @@ router.get('/signup', async (req, res)=>{
     }
 })
 
-router.get('/logout', async (req, res)=>{
-    try {
-        res.session.destroy();
-        res.render('homepage')
-    } 
-    catch (error) {
-        res.status(500).json({message: 'Internal Server Error'})
-    }
-})
+//Should this be under API
 
 router.get('/dashboard', async (req, res)=>{
     try {
