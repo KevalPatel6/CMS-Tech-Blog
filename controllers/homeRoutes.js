@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User, Blog} = require('../models')
+const authenticate = require('../utils/authenticate')
 
 
 router.get('/', async (req, res)=>{
@@ -36,11 +37,11 @@ router.get('/signup', async (req, res)=>{
 
 //Should this be under API
 
-router.get('/dashboard', async (req, res)=>{
+router.get('/dashboard', authenticate, async (req, res)=>{
     try {
         const techBlogData = await Blog.findAll({
             where: {
-                user_id: req.session.id
+                user_id: req.session.userID
             },
             include:[User]
         })
@@ -56,3 +57,14 @@ router.get('/dashboard', async (req, res)=>{
         res.status(500).json({message: 'Internal Server Error'})
     }
 })
+
+router.get('/newPost', authenticate, async (req, res)=>{
+    try {
+        res.render('newPost')
+
+    } catch (error) {
+        res.status(500).json({message: 'Internal Server Error'})
+    }
+})
+
+module.exports = router

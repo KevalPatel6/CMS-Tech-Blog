@@ -7,4 +7,10 @@ Need to make the database using models
     Store login password
     Store Tech blog
     Store Comments
+
+
+    Front end 
+        -homepage  
+        -index.js for landing page?
+        -what goes in homepage.js
     

@@ -13,12 +13,12 @@
         <nav class='nav'>
             <ul>
                 {{!-- The href needs to be to a new handle bar --}}
-                <li><a href='/'></a>Home</li>
-                <li><a href='/dashboard'></a>Dashboard</li>
+                <li><a href='/'>Home</a></li>
+                <li><a href='/dashboard'>Dashboard</a></li>
                 {{#if logged_in}}
-                <li id="logout"><a href='/logout'></a>Logout</li>
+                <li id="logout"><a href='/logout'>Logout</a></li>
                 {{else}}
-                <li id="login"><a href='/login'></a>Login</li>
+                <li id="login"><a href='/login'>Login</a></li>
                 {{/if}}
 
 
@@ -38,5 +38,4 @@
 
 </body>
 
-<script src="/index.js"></script>
 </html>

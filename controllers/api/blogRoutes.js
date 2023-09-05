@@ -4,10 +4,14 @@ const authenticate = require('../../utils/authenticate');
 
 router.post('/', authenticate, async (req,res)=>{
     try {
-        const blogs = await Blog.create(req.body)
+        const blogs = await Blog.create({
+            ...req.body,
+            user_id: req.session.userID
+        })
         res.json(blogs)
         
     } catch (error) {
+        console.log(error)
         res.status(500).json({message:'Internal Service Error, unable to post your blog, please try again.'})
     }
 
@@ -37,7 +41,7 @@ router.delete('/', authenticate, async (req, res)=>{
 
 //Still need to do update//
 
-router.put()
+// router.put()
 
 
 module.exports = router;

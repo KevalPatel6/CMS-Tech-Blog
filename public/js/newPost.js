@@ -1,21 +1,22 @@
 let blogContainer = document.querySelector('.blog-container')
 let postButton = document.querySelector('button')
-let blogTitle = document.getElementById('post-title').value
-let blogContent = document.getElementById('new-post-content').value
+let blogTitle = document.getElementById('post-title')
+let blogContent = document.getElementById('new-post-content')
 let publishButton = document.getElementById('publish-btn')
-const dayjs = require('dayjs')
+
 
 
 
 const newPostHandler = async (event) => {
     event.preventDefault();
     // Send a POST request to the API endpoint
+
     const response = await fetch('/api/blog/', {
         method: 'POST',
         body: JSON.stringify({
-            blog_title: blogTitle,
-            blog_content: blogContent,
-            date_posted: dayjs().format('MM/DD/YYY h/mm A'),
+            blog_title: blogTitle.value.trim(),
+            blog_content: blogContent.value.trim(),
+            date_posted: dayjs().unix()*1000,
         }),
         headers: { 'Content-Type': 'application/json' },
     });
