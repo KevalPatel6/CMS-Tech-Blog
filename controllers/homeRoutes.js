@@ -1,14 +1,16 @@
 const router = require('express').Router();
-const {User, Blog} = require('../models')
+const {User, Blog, Comment} = require('../models')
 const authenticate = require('../utils/authenticate')
 
 
 router.get('/', async (req, res)=>{
     try {
-        const techBlogData = await Blog.findAll()
+        const techBlogData = await Blog.findAll({
+            include:[{model: User}]
+        })
         
         const techBlogs = techBlogData.map((techBlog)=> techBlog.get({plain:true}));
-
+        console.log(techBlogs)
         res.render('homepage', {techBlogs})
     
     
@@ -70,12 +72,12 @@ router.get('/newPost', authenticate, async (req, res)=>{
 //Get Blog by ID//
 router.get('/blog/:id', authenticate, async (req,res)=>{
     try {
-        const blogs = await Blog.findByPk(req.params.id, {
+        let blogs = await Blog.findByPk(req.params.id, {
             include: [{model: Comment},{model: User}]
         })
         
         blogs = blogs.get({plain:true});
-
+        console.log(blogs)
         res.render('comment', {
             ...blogs
         })
