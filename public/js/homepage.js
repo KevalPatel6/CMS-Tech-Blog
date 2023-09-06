@@ -5,9 +5,7 @@ blogTitle.addEventListener('click', async (event) => {
     let response = await fetch(`/blog/:id${blogTitleID}`,{
         method: 'GET',
     });
-   
     if(response.ok){
         document.location.replace('/comment')
     }
-    
 });
